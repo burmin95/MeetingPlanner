@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using MeetingPlanner.Models;
 using MeetingPlanner.Services;
+using MeetingPlanner.Utilities;
 
 namespace MeetingPlanner.Jobs
 {
@@ -43,18 +44,14 @@ namespace MeetingPlanner.Jobs
 
             Console.CursorLeft = 0;
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("--------- Напоминание ---------");
-            Console.ResetColor();
-
+            ConsoleUtils.WriteWarning("--------- Напоминание ---------");
+            
             foreach (var reminder in reminders)
             {
-                Console.WriteLine($"- Встреча {reminder.Meeting.Name} через {Humanize(reminder.Meeting.StartDate - DateTime.Now)}");
+                ConsoleUtils.WriteWarning($"- Встреча {reminder.Meeting.Name} через {Humanize(reminder.Meeting.StartDate - DateTime.Now)}");
             }
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("-------------------------------");
-            Console.ResetColor();
+            ConsoleUtils.WriteWarning("-------------------------------");
 
             Console.CursorLeft = leftPos;
 

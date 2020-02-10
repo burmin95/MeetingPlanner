@@ -53,7 +53,7 @@ namespace MeetingPlanner.Commands
             if (reminder != null)
                 meeting.Reminders.Add(reminder);
 
-            Console.WriteLine($"Встреча \"{meeting}\" создана.");
+            ConsoleUtils.WriteSuccess($"Встреча \"{meeting}\" создана.");
         }
 
         private static Reminder TryAddReminder(Meeting meeting)

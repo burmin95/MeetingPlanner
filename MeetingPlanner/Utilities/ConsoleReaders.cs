@@ -88,10 +88,7 @@ namespace MeetingPlanner.Utilities
                 if (!validationRule.Validate(value))
                 {
                     isValid = false;
-
-                    Console.ForegroundColor = ConsoleColor.Red;
                     ConsoleUtils.WriteError(validationRule.ErrorText);
-                    Console.ResetColor();
                 }
             }
 
